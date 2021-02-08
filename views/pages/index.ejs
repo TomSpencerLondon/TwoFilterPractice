@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="filters">
+    <div class="filter">
+        <p>industry:</p>
+        <select data-select-industry>
+            <option>all</option>
+            <% for (industry in allIndustries) { %>
+            <option><%= industry %></option>
+            <% } %>
+        </select>
+    </div>
+    <div class="filter">
+        <p>problem:</p>
+        <select data-select-problem>
+            <option>all</option>
+            <% for (problem in allProblems) { %>
+            <option><%= problem %></option>
+            <% } %>
+        </select>
+    </div>
+</div>
+<hr />
+<% for (client in clients) { %>
+    <% let problems = [] %>
+    <% for (problem in client.problems) { %>
+        <% problems.push(problem.name) %>
+    <% } %>
+<% } %>
+<article data-client-industry=`<%= client.industry.name %>` data-client-problems=`<%= problems.join(',') %>`>
+    <div class="client-container">
+        <div class="client-logo" style="background-image: url(<%= client.logo.url %>)">
+        </div>
+        <div class="client-info">
+            <h3><%= client.name %></h3>
+            <p>industry: <%= client.industry.name %></p>
+            <p>problems: <%= problems.join(' | ') %></p>
+        </div>
+    </div>
+<hr />
+</article>
+<% } %>
+<script src="script.js"></script>
+</body>
+</html>
