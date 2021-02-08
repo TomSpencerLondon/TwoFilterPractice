@@ -1,3 +1,5 @@
+console.log("this is working");
+
 const clients = Array.prototype.slice.call(
   document.querySelectorAll('[data-client-industry]')
 );

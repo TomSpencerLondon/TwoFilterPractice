@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="filters">
@@ -32,7 +32,8 @@
     <% client.problems.forEach((problem) => { %>
         <% problems.push(problem.name) %>
     <% }); %>
-<article data-client-industry=`<%= client.industry.name %>` data-client-problems=`<%= problems.join(',') %>`>
+        <% let clientProblems = problems.join() %>
+<article data-client-industry=<%= client.industry.name %> data-client-problems='<%= clientProblems %>'>
     <div class="client-container">
         <div class="client-logo" style="background-image: url(<%= client.logo.url %>)">
         </div>
@@ -45,6 +46,6 @@
 <hr />
 </article>
 <% }); %>
-<script src="script.js"></script>
+<script type="text/javascript" src="/scripts/index.js"></script>
 </body>
 </html>
