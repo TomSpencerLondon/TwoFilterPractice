@@ -11,28 +11,27 @@
         <p>industry:</p>
         <select data-select-industry>
             <option>all</option>
-            <% for (industry in allIndustries) { %>
+            <% allIndustries.forEach((industry) => { %>
             <option><%= industry %></option>
-            <% } %>
+            <% }); %>
         </select>
     </div>
     <div class="filter">
         <p>problem:</p>
         <select data-select-problem>
             <option>all</option>
-            <% for (problem in allProblems) { %>
+            <% allProblems.forEach((problem) => { %>
             <option><%= problem %></option>
-            <% } %>
+            <% }); %>
         </select>
     </div>
 </div>
 <hr />
-<% for (client in clients) { %>
+<% clients.forEach((client)=> { %>
     <% let problems = [] %>
-    <% for (problem in client.problems) { %>
+    <% client.problems.forEach((problem) => { %>
         <% problems.push(problem.name) %>
-    <% } %>
-<% } %>
+    <% }); %>
 <article data-client-industry=`<%= client.industry.name %>` data-client-problems=`<%= problems.join(',') %>`>
     <div class="client-container">
         <div class="client-logo" style="background-image: url(<%= client.logo.url %>)">
@@ -45,7 +44,7 @@
     </div>
 <hr />
 </article>
-<% } %>
+<% }); %>
 <script src="script.js"></script>
 </body>
 </html>
