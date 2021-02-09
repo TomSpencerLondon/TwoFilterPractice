@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     problems: [{ name: 'Software Creation'} ], industry: { name: 'Finance'} },
     { name: 'Cazoo', tier: 'high', logo: 'cazoo.png',
     problems: [{ name: 'Software Creation'}], industry: { name: 'Transport' } },
-    { name: 'eClinicalWorks', tier: 'medium', logo: 'eclinicalWorks',
+    { name: 'eClinicalWorks', tier: 'medium', logo: 'eclinicalWorks.png',
     problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice' }],
     industry: { name: 'Health' } },
     { name: 'Asos', tier: 'medium', logo: 'asos.png',

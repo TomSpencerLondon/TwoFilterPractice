@@ -26,16 +26,16 @@
         </select>
     </div>
 </div>
-<hr />
+<div class="masonry">
 <% clients.forEach((client)=> { %>
     <% let problems = [] %>
     <% client.problems.forEach((problem) => { %>
         <% problems.push(problem.name) %>
     <% }); %>
         <% let clientProblems = problems.join() %>
-<article data-client-industry=<%= client.industry.name %> data-client-problems='<%= clientProblems %>'>
+<article class="item" data-client-industry=<%= client.industry.name %> data-client-problems='<%= clientProblems %>'>
     <div class="client-container">
-        <div class="client-logo" style="background-image: url(<%= client.logo.url %>)">
+        <div class="client-logo" style="background-image: url(<%= client.logo %>)">
         </div>
         <div class="client-info">
             <h3><%= client.name %></h3>
@@ -46,6 +46,7 @@
 <hr />
 </article>
 <% }); %>
+</div>
 <script type="text/javascript" src="/scripts/index.js"></script>
 </body>
 </html>

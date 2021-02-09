@@ -45,25 +45,25 @@
   </select>
  </div>
 </div>
-<hr />
+<div class="masonry">
 {% for client in clients %}
 {% set problems = [] %}
 {% for problem in client.problems %}
 {% do  problems.append(problem.name) %}
 {% endfor %}
-<article data-client-industry="{{client.industry.name}}" data-client-problems="{{problems|join(',')}}">
- <div class="client-container">
-  <div class="client-logo" style="background-image: url({{client.logo.url}})">
-  </div>
-  <div class="client-info">
-   <h3>{{client.name}}</h3>
-   <p>industry: {{client.industry.name}}</p>
-   <p>problems: {{problems|join(' | ')}}</p>
-  </div>
- </div>
- <hr />
-</article>
+  <article class="item" data-client-industry="{{client.industry.name}}" data-client-problems="{{problems|join(',')}}">
+   <div class="client-container">
+    <div class="client-logo" style="background-image: url({{client.logo.url}})">
+    </div>
+    <div class="client-info">
+     <h3>{{client.name}}</h3>
+     <p>industry: {{client.industry.name}}</p>
+     <p>problems: {{problems|join(' | ')}}</p>
+    </div>
+   </div>
+   <hr />
+  </article>
 {% endfor %}
-
+</div>
 </body>
 </html>
