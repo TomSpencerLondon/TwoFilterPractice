@@ -15,7 +15,8 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   let clients = [
     { name: 'Bankable', tier: 'low', logo: 'bankable.png',
-    problems: [{ name: 'Software Creation'} ], industry: { name: 'Finance'} },
+    problems: [{ name: 'Software Creation'} ], industry: { name: 'Finance'}, video: 'https://www.youtube.com/watch?v=THdZRpFacZY&feature=youtu.be',
+      book: 'https://github.com/indrabasak/Books/blob/master/Kubernetes%20in%20Action.pdf'},
     { name: 'Cazoo', tier: 'high', logo: 'cazoo.png',
     problems: [{ name: 'Software Creation'}], industry: { name: 'Transport' } },
     { name: 'eClinicalWorks', tier: 'medium', logo: 'eclinicalWorks.png',
@@ -23,7 +24,31 @@ app.get('/', (req, res) => {
     industry: { name: 'Health' } },
     { name: 'Asos', tier: 'medium', logo: 'asos.png',
     problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice'}],
-    industry: { name: 'Fashion' } }
+    industry: { name: 'Fashion' } },
+    { name: 'Cazoo', tier: 'high', logo: 'cazoo.png',
+    problems: [{ name: 'Software Creation'}], industry: { name: 'Transport' }, video: 'https://www.youtube.com/watch?v=THdZRpFacZY&feature=youtu.be' },
+    { name: 'eClinicalWorks', tier: 'medium', logo: 'eclinicalWorks.png',
+    problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice' }],
+    industry: { name: 'Health' } },
+    { name: 'Asos', tier: 'medium', logo: 'asos.png',
+    problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice'}],
+    industry: { name: 'Fashion' } },
+    { name: 'Cazoo', tier: 'high', logo: 'cazoo.png',
+      problems: [{ name: 'Software Creation'}], industry: { name: 'Transport' } },
+    { name: 'eClinicalWorks', tier: 'medium', logo: 'eclinicalWorks.png',
+      problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice' }],
+      industry: { name: 'Health' } },
+    { name: 'Asos', tier: 'medium', logo: 'asos.png',
+      problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice'}],
+      industry: { name: 'Fashion' }, video: 'https://www.youtube.com/watch?v=THdZRpFacZY&feature=youtu.be' },
+    { name: 'Cazoo', tier: 'high', logo: 'cazoo.png',
+      problems: [{ name: 'Software Creation'}], industry: { name: 'Transport' } },
+    { name: 'eClinicalWorks', tier: 'medium', logo: 'eclinicalWorks.png',
+      problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice' }],
+      industry: { name: 'Health' } },
+    { name: 'Asos', tier: 'medium', logo: 'asos.png',
+      problems: [{ name: 'Software Modernisation'}, { name: 'Software Creation'}, { name: 'Expert Advice'}],
+      industry: { name: 'Fashion' }, video: 'https://www.youtube.com/watch?v=THdZRpFacZY&feature=youtu.be', book: 'https://github.com/indrabasak/Books/blob/master/Kubernetes%20in%20Action.pdf' }
   ]
 
   let allIndustries = [];
