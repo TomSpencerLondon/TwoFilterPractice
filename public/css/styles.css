@@ -10,6 +10,7 @@
 .client-container {
     display: flex;
     align-items: center;
+    padding: 10px;
 }
 
 .client-logo {
@@ -19,11 +20,12 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 70px;
-    width: 120px;
+    min-width: 120px;
 }
 
 .client-info {
     padding-left: 50px;
+    min-width: 120px;
 }
 
 .cta-button {
