@@ -32,7 +32,9 @@
         <% }); %>
     </div>
 </div>
+<hr />
 <div class="grid-container">
+    <div class="grid-sizer"></div>
 <% clients.forEach((client)=> { %>
     <% let problems = [] %>
     <% client.problems.forEach((problem) => { %>
@@ -44,10 +46,10 @@
             <% let classStyle = "" %>
         <% } %>
         <% let clientProblems = problems.join() %>
-<div class="grid-item v-wide v-long" data-client-industry=<%= client.industry %> data-client-problems='<%= clientProblems %>'>
+<div class="grid-item v-wide v-long" data-client-industry=<%= client.industry %> data-client-problem='<%= clientProblems %>'>
     <div class="client-container">
         <div class="client-left">
-            <% if (client.logo) { %>
+            <% if (client.logo !== undefined) { %>
                 <div class="client-logo" style="background-image: url(<%= client.logo %>)">
                 </div>
             <% } %>
@@ -70,8 +72,8 @@
         <% } %>
     </div>
 </div>
-    <% if (client.video) { %>
-            <div class="grid-item wide"  data-client-industry=<% client.industry %> data-client-problems=<%= clientProblems %>>
+    <% if (client.video !== undefined) { %>
+            <div class="grid-item wide"  data-client-industry=<% client.industry %> data-client-problem=<%= clientProblems %>>
                 <h3><%= client.name %></h3>
                 <div class="embed-video__video">
                     <div class="embed-video__video-inner">
@@ -82,7 +84,7 @@
     <% } %>
     <% }); %>
 </div>
-<script type="text/javascript" src="/scripts/index.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script type="text/javascript" src="/scripts/index.js"></script>
 </body>
 </html>

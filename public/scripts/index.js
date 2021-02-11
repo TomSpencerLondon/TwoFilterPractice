@@ -29,6 +29,8 @@ const setAllFilters = _ => {
 }
 
 const showAppliedFilter = (key, filter) => {
+  console.log(key);
+  console.log(filter);
   document.querySelector(`[data-applied-${key}-filter="${filter}"]`).classList.remove('hidden');
 }
 
@@ -49,7 +51,7 @@ const updateAppliedFilters = _ => {
     const all = allFilters[key];
     const applied = appliedFilters[key];
     const unapplied = all.filter(filter => !applied.includes(filter));
-
+    console.log(unapplied);
     applied.forEach(filter => showAppliedFilter(key, filter));
     applied.forEach(filter => hideAppliedOption(key, filter));
     unapplied.forEach(filter => hideUnappliedFilter(key, filter));
