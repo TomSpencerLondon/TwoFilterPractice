@@ -8,74 +8,79 @@
 <body>
 <div class="filters">
     <div class="filter">
-        <p>industry:</p>
         <select data-select-industry>
-            <option>all</option>
+            <option value="" disabled selected hidden>Filter by industry</option>
             <% allIndustries.forEach((industry) => { %>
-            <option><%= industry %></option>
+                <option data-industry-option=<%= industry %>><%= industry %></option>
             <% }); %>
         </select>
     </div>
     <div class="filter">
-        <p>problem:</p>
-        <select data-select-problem>
-            <option>all</option>
+        <select data-select-problem value="">
+            <option value="" disabled selected hidden>Filter by problem</option>
             <% allProblems.forEach((problem) => { %>
-            <option><%= problem %></option>
+            <option data-problem-option=<%= problem %>><%= problem %></option>
             <% }); %>
         </select>
+    </div>
+    <div class="applied-filters">
+        <% allIndustries.forEach((industry) => { %>
+            <div class="applied-filter hidden" data-applied-industry-filter=<%= industry %>><%= industry %><div class="remove-filter" data-remove-industry-filter=<%= industry %>></div></div>
+        <% }); %>
+        <% allProblems.forEach((problem) => { %>
+            <div class="applied-filter hidden" data-applied-industry-filter=<%= problem %>><%= problem %><div class="remove-filter" data-remove-industry-filter=<%= problem %>></div></div>
+        <% }); %>
     </div>
 </div>
 <div class="grid-container">
 <% clients.forEach((client)=> { %>
     <% let problems = [] %>
     <% client.problems.forEach((problem) => { %>
-        <% problems.push(problem.name) %>
+        <% problems.push(problem) %>
     <% }); %>
+        <% if (client.testimonial !== undefined || client.description !== undefined) { %>
+            <% let classStyle = "wide" %>
+        <% } else { %>
+            <% let classStyle = "" %>
+        <% } %>
         <% let clientProblems = problems.join() %>
-        <% if (client.video !== undefined && client.book !== undefined) { %>
-<article class="grid-item v-wide v-long" data-client-industry=<%= client.industry.name %> data-client-problems='<%= clientProblems %>'>
+<div class="grid-item v-wide v-long" data-client-industry=<%= client.industry %> data-client-problems='<%= clientProblems %>'>
     <div class="client-container">
-        <div class="client-logo" style="background-image: url(<%= client.logo %>)">
+        <div class="client-left">
+            <% if (client.logo) { %>
+                <div class="client-logo" style="background-image: url(<%= client.logo %>)">
+                </div>
+            <% } %>
+                <h3><%= client.name %></h3>
+                <p>🔧 <%= client.industry %></p>
+                <p>❓ <%= clientProblems %></p>
         </div>
-        <div class="client-info">
-            <h3><%= client.name %></h3>
-            <p>industry: <%= client.industry.name %></p>
-            <p>problems: <%= problems.join(' | ') %></p>
+        <% if (client.description || client.testimonial) { %>
+        <div class="client-right">
+            <% if (client.description) { %>
+                <p><% client.description %></p>
+            <% } %>
+            <% if (client.testimonial) { %>
+                    <p>"<% client.testimonial %>" - <span class="testimonial-author">John Doe, Honest man</span></p>
+            <% } %>
+            <% if (client.case_study) { %>
+                <a href='<%= client.video %>' class="cta-button">Case Study</a>
+            <% } %>
         </div>
-        <div>
-            <a href='<%= client.video %>' class="cta-button">Watch the video</a>
-        </div>
-        <div>
-            <a href='<%= client.book %>' class="cta-button">Read the book</a>
-        </div>
+        <% } %>
     </div>
-</article>
-    <% } else if (client.video !== undefined) { %>
-        <article class="grid-item wide long" data-client-industry=<%= client.industry.name %> data-client-problems='<%= clientProblems %>'>
-            <div class="client-container">
-                <div class="client-logo" style="background-image: url(<%= client.logo %>)">
-                </div>
-                <div class="client-info">
-                    <h3><%= client.name %></h3>
-                    <p>industry: <%= client.industry.name %></p>
-                    <p>problems: <%= problems.join(' | ') %></p>
+</div>
+    <% if (client.video) { %>
+            <div class="grid-item wide"  data-client-industry=<% client.industry %> data-client-problems=<%= clientProblems %>>
+                <h3><%= client.name %></h3>
+                <div class="embed-video__video">
+                    <div class="embed-video__video-inner">
+                        <iframe width="90%" height="315" src="https://www.youtube.com/embed/cL3DaHZ88ZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
-        </article>
-    <% } else { %>
-        <article class="grid-item" data-client-industry=<%= client.industry.name %> data-client-problems='<%= clientProblems %>'>
-            <div class="client-container">
-                <div class="client-logo" style="background-image: url(<%= client.logo %>)">
-                </div>
-                <div class="client-info">
-                    <h3><%= client.name %></h3>
-                    <p>industry: <%= client.industry.name %></p>
-                    <p>problems: <%= problems.join(' | ') %></p>
-                </div>
-            </div>
-        </article>
-<% } }); %>
+    <% } %>
+    <% }); %>
 </div>
 <script type="text/javascript" src="/scripts/index.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>

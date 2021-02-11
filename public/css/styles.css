@@ -1,84 +1,130 @@
-
 .filters {
+    align-items: center;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
 .filter {
-    padding: 0 50px;
+    width: 20%;
+}
+
+.applied-filters {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.applied-filter {
+    background-color: rgba(251,114,104,0.8);;
+    border-radius: 20px;
+    color: white;
+    margin: 20px;
+    padding: 5px 10px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.remove-filter {
+    background: none;
+    height: 15px;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    width: 15px;
+}
+
+.remove-filter:hover {
+    cursor: pointer;
+}
+
+.remove-filter::after {
+    color: white;
+    content: 'x';
+    margin-left: 9px;
 }
 
 .client-container {
     display: flex;
     align-items: center;
-    padding: 10px;
+}
+
+.client-left {
+    width: 300px;
+    margin: 20px;
+}
+
+.client-right {
+    width: 66%;
+    margin: 20px;
 }
 
 .client-logo {
     align-items: center;
     background-size: 120px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 70px;
-    min-width: 120px;
+    height: 200px;
+    width: 100%;
 }
 
 .client-info {
     padding-left: 50px;
-    min-width: 120px;
 }
 
-.cta-button {
-    color:white;
-    font-family: "proxima-nova",sans-serif;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:12px;
-    border-radius:5px;
-    background-color: #f09e3f;
-    padding:14px;
-    width:100px;
-    display:block;
-    text-align:center;
-    text-shadow:1px 1px 1px #dd360b;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
-    margin-left: 20px;
+.testimonial-author {
+    font-weight: 700;
 }
 
-.cta-button:hover {
-    background-color: #f2a854;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
-}
-
-cta-button:active {
-    background-color: #ee8b1a;
-    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.3);
-}
-
-.hidden {
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
+.case-study-button {
+    position: absolute;
+    right: 30px;
 }
 
 .grid-container {
     margin: 50px auto;
     width: 80%;
-    display: flex;
-    flex-wrap: wrap;
+}
+
+.grid-sizer {
+    width: 33%;
 }
 
 .grid-item {
+    background-color: pink;
     border: 1px solid #c6c6c6;
-    height: 200px;
+    min-height: 200px;
     margin-bottom: 10px;
+    width: 30%;
 }
 
 .wide {
-    width: calc(100% * 2 / 3);
+    width: 60%;
 }
 
 .v-wide {
     width: 100%;
 }
 
+.long {
+    min-height: 400px;
+}
+
+.v-long {
+    min-height: 600px;
+}
+
+.embed-video__video {
+    padding: 20px;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
