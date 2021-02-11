@@ -33,11 +33,11 @@
     font-family: "proxima-nova",sans-serif;
     text-decoration:none;
     font-weight:bold;
-    font-size:22px;
+    font-size:12px;
     border-radius:5px;
     background-color: #f09e3f;
     padding:14px;
-    width:300px;
+    width:100px;
     display:block;
     text-align:center;
     text-shadow:1px 1px 1px #dd360b;
@@ -64,12 +64,13 @@ cta-button:active {
 .grid-container {
     margin: 50px auto;
     width: 80%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .grid-item {
     border: 1px solid #c6c6c6;
     height: 200px;
-    width: calc(100% / 3 * 10px);
     margin-bottom: 10px;
 }
 
@@ -77,14 +78,7 @@ cta-button:active {
     width: calc(100% * 2 / 3);
 }
 
-.v-wid {
+.v-wide {
     width: 100%;
 }
 
-.long {
-    height: 400px;
-}
-
-.v-long {
-    height: 600px;
-}
