@@ -6,6 +6,7 @@ const problemFilter = document.querySelector('[data-select-problem]');
 
 let allFilters;
 let msnry;
+let isotope;
 
 const appliedFilters = {
   industry: [],
@@ -29,8 +30,6 @@ const setAllFilters = _ => {
 }
 
 const showAppliedFilter = (key, filter) => {
-  console.log(key);
-  console.log(filter);
   document.querySelector(`[data-applied-${key}-filter="${filter}"]`).classList.remove('hidden');
 }
 
@@ -51,6 +50,7 @@ const updateAppliedFilters = _ => {
     const all = allFilters[key];
     const applied = appliedFilters[key];
     const unapplied = all.filter(filter => !applied.includes(filter));
+    console.log(key);
     console.log(unapplied);
     applied.forEach(filter => showAppliedFilter(key, filter));
     applied.forEach(filter => hideAppliedOption(key, filter));
@@ -68,6 +68,7 @@ const byIndustry = client => {
 
 const byProblem = client => {
   let problemFilters = appliedFilters.problem;
+  console.log(client);
   const clientProblems = client.dataset.clientProblems.split(',');
   return problemFilters.length === 0 ||
     problemFilters.some(filter => clientProblems.includes(filter));
@@ -87,7 +88,7 @@ const refilter = _ => {
 
   visibleClients.forEach(showClient);
   hiddenClients.forEach(hideClient);
-  msnry.layout();
+  isotope.layout();
 }
 
 const unnamedFunction = _ => {
@@ -144,12 +145,20 @@ const addRemoveFilterListeners = _ => {
 
 const doMasonryMagic = _ => {
   let elem = document.querySelector('.grid-container');
-  msnry = new Masonry(elem, {
+  // msnry = new Masonry(elem, {
+  //     itemSelector: '.grid-item',
+  //     columnWidth: '.grid-sizer',
+  //     percentPosition: true
+  // });
+  isotope = new Isotope(elem, {
+    layoutMode: 'packery',
     itemSelector: '.grid-item',
     columnWidth: '.grid-sizer',
-    percentPosition: true
+    percentPosition: true,
+    packery: {
+      gutter: '.gutter-sizer'
+    }
   });
-  msnry.layout();
 }
 
 const init = _ => {

@@ -11,15 +11,11 @@ app.set('view engine', 'ejs');
 
 // index page
 let clients = [
-  {name: 'Bankable', video: 'https://www.youtube.com/watch?v=THdZRpFacZY&feature=youtu.be', logo: 'chinese-new-year.png', industry: 'Finance', problems: ['Software Creation'], description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \n' +
-      'pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \n' +
-      'Donec scelerisque sollicitudin enim eu venenatis.', testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \n' +
-      'pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \n' +
-      'Donec scelerisque sollicitudin enim eu venenatis.', case_study: 'https://github.com/indrabasak/Books/blob/master/Kubernetes%20in%20Action.pdf' },
-  {name: 'Asos', industry: 'Fashion', problems: ['Software Modernisation', 'Software Creation', 'Expert Advice'] },
-  { name: 'Mango', industry: 'Fashion', problems: ['Software Modernisation', 'Software Creation', 'Expert Advice']},
-  { name: 'Cazoo', industry: 'Transport', problems: ['Software Creation'], testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dolor mi, fringilla dictum hendrerit sit amet, fringilla sit amet dui. Praesent ullamcorper vitae ex sit amet vestibulum. Fusce pulvinar ligula.' },
-  { name: 'eClinicalWorks', industry: 'Health', problems: ['Software Modernisation', 'Software Creation', 'Expert Advice'], description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum pretium elit rhoncus ornare. Aenean in nisl ultrices, luctus quam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum pretium elit rhoncus ornare. Aenean in nisl ultrices, luctus quam.'}
+  {name: "Bankable", tier: "low", logo: "https://f.hubspotusercontent00.net/hubfs/8685554/Bankable-logo-only-wheel-154x154.jpg", problems: ["Software Creation"], industry: "Finance", testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dolor mi, fringilla dictum hendrerit sit amet, fringilla sit amet dui. Praesent ullamcorper vitae ex sit amet vestibulum. Fusce pulvinar ligula.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum pretium elit rhoncus ornare. Aenean in nisl ultrices, luctus quam.", case_study: "http://example.com/", video: "http://example.com/"},
+  {name: "Cazoo", tier: "high", logo: "https://f.hubspotusercontent00.net/hubfs/8685554/external-content.duckduckgo.com.png", problems: ["Software Creation"], industry: "Transport", testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dolor mi, fringilla dictum hendrerit sit amet, fringilla sit amet dui. Praesent ullamcorper vitae ex sit amet vestibulum. Fusce pulvinar ligula.", video: "http://example.com/"},
+  {name: "eClinicalWorks", tier: "medium", logo: "https://f.hubspotusercontent00.net/hubfs/8685554/eClinicalWorks-logo1.png", problems: ["Software Modernisation", "Software Creation", "Expert Advice"], industry: "Health", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum pretium elit rhoncus ornare. Aenean in nisl ultrices, luctus quam." },
+  { name: "Asos", tier: "medium", problems: ["Software Modernisation", "Software Creation", "Expert Advice"], industry: "Fashion" },
+  {name: "Mango", tier: "low", logo: "https://f.hubspotusercontent00.net/hubfs/8685554/Bankable-logo-only-wheel-154x154.jpg", problems: ["Software Modernisation", "Software Creation", "Expert Advice"], industry: "Fashion" },
 ]
 
 let allIndustries = [];
