@@ -1,9 +1,17 @@
+body {
+    font-size: 15px;
+}
+
 .filters {
     align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 20px;
+}
+
+body {
+    box-sizing: border-box;
 }
 
 .filter {
@@ -81,11 +89,10 @@
     font-family: "proxima-nova",sans-serif;
     text-decoration:none;
     font-weight:bold;
-    font-size:22px;
     border-radius:5px;
     background-color: #f09e3f;
     padding:14px;
-    width:300px;
+    width: 200px;
     display:block;
     text-align:center;
     text-shadow:1px 1px 1px #dd360b;
@@ -105,7 +112,6 @@ cta-button:active {
 
 .grid-container {
     margin: 50px auto;
-    width: 70%;
 }
 
 .grid-sizer {
@@ -119,13 +125,11 @@ cta-button:active {
     min-height: 200px;
     margin-bottom: 10px;
     padding: 20px;
-    width: 30%;
-    min-width: 300px;
+    width: 20%;
 }
 
 .wide {
     width: 60%;
-    min-width: 600px;
 }
 
 .v-wide {

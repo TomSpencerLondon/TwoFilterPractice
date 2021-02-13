@@ -150,6 +150,7 @@ const doMasonryMagic = _ => {
   //     columnWidth: '.grid-sizer',
   //     percentPosition: true
   // });
+  console.log("this is isotope")
   isotope = new Isotope(elem, {
     layoutMode: 'packery',
     itemSelector: '.grid-item',
